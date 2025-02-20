@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Meu {
+public class MaiorMenor {
     public static void main ( String [] args ) {
         String digita =
             JOptionPane.showInputDialog( "digite um numero: " );
