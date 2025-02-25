@@ -4,7 +4,8 @@ import javax.swing.JOptionPane;
 
 public class Calculadora {
     public static void main ( String [] args ) {
-        String entrada1 = JOptionPane.showInputDialog ( "digite um numero" );
+        try{
+            String entrada1 = JOptionPane.showInputDialog ( "digite um numero" );
     double n1 = Double.parseDouble ( entrada1 );
         String operador;
              while ( true ) {
@@ -31,15 +32,20 @@ public class Calculadora {
                                      resultado = n1 * n2;
                                         break;
                                 case "/":
-                                if ( n2 !=0 || n1 !=0 ) {
-                                     resultado = n1 / n2;
+                                if ( n1 ==0 || n2 ==0 ) {
+                                     JOptionPane.showMessageDialog ( null , "operação invalida" );
+                                    opValida = false;
                                 } else {
-                                    JOptionPane.showMessageDialog ( null , "operação invalida" );
-                                        opValida = false;
+                                     resultado = n1 / n2;
                                 } break;      
                             }
-    if (opValida) {
-        JOptionPane.showMessageDialog ( null, n1 + " " + operador + " " + n2 + "= " + resultado );
+            if (opValida) {
+                JOptionPane.showMessageDialog ( null, n1 + " " + operador + " " + n2 + "= " + resultado );
+                }
+        
+
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro! (" + e.getMessage() + ")");
         }
     }
 }
